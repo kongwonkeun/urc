@@ -13,7 +13,7 @@ from zKMAction import *
 #================================
 #
 #
-KM_HOST = '127.0.0.1'
+KM_HOST = '192.168.0.9'
 KM_PORT = 9999
 KM_CLIENT_JOIN = '--join--'
 KM_CLIENT_LEAVE = '--leave--'
@@ -32,9 +32,10 @@ KM_V_M = 'vmute'
 
 KM_L_U = 'lup'
 KM_L_D = 'ldown'
-KM_L_CLICK = 'lclick'
 KM_R_U = 'rup'
 KM_R_D = 'rdown'
+
+KM_L_CLICK = 'lclick'
 KM_R_CLICK = 'rclick'
 
 #================================
@@ -48,11 +49,15 @@ class KMServer:
     def __init__(self):
         self.sock = socket(AF_INET, SOCK_STREAM)
         self.sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-        self.sock.bind((KM_HOST,KM_PORT))
+        self.sock.bind(('',KM_PORT))
         self.sock.listen(0)
     
     def run_server(self):
         if  True:
+            #name = socket.gethostname()
+            #ip = socket.gethostbyname(name)
+            ip = self.sock.getsockname()[0]
+            print(f'my ip is {ip}')
             print('waiting...')
             self.conn, addr = self.sock.accept()
             print(f'connected to {addr}')
