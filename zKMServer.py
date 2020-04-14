@@ -53,11 +53,7 @@ class KMServer:
         self.sock.listen(0)
     
     def run_server(self):
-        if  True:
-            #name = socket.gethostname()
-            #ip = socket.gethostbyname(name)
-            ip = self.sock.getsockname()[0]
-            print(f'my ip is {ip}')
+        if  True: #---- kong ---- for future usage
             print('waiting...')
             self.conn, addr = self.sock.accept()
             print(f'connected to {addr}')
@@ -196,11 +192,7 @@ if  __name__ == '__main__':
     while True:
         km.run_server()
         km.check_client_message()
-
-        #if  msvcrt.kbhit():
-        #    c = msvcrt.getch()
-        #    if  c == b'q':
-        #        break
+        #---- kong ----
 
     sys.exit()
 

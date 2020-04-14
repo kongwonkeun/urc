@@ -121,7 +121,8 @@ if  __name__ == '__main__':
             #move_mouse(10,10)
             #vol_up()
             #press(0x37)
-            #handle_key('a')
+            #print(c)
+            #handle_key('c')
             if  c == b'q':
                 break
 
