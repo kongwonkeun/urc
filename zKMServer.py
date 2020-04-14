@@ -20,6 +20,7 @@ KM_CLIENT_LEAVE = '--leave--'
 
 KM_ENTER = 'enter'
 KM_BS = 'bs'
+KM_HAN_ENG = 'han_eng'
 KM_U = 'up'
 KM_D = 'down'
 KM_L = 'left'
@@ -126,6 +127,8 @@ class KMServer:
                             enter()
                         elif m.decode() == KM_BS:
                             bs()
+                        elif m.decode() == KM_HAN_ENG:
+                            han_eng()
                         elif KM_ADD in m.decode():
                             handle_key(m.decode()[-1])
                         elif m.decode() == KM_U:
