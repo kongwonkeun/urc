@@ -28,7 +28,14 @@ class Tray:
         self.file = file
         self.argv = argv
         ip = zKMUtil.get_ip_address()
-        self.icon = os.path.join(os.path.dirname(file), KM_ICON)
+        #---- kong ----
+        #self.icon = os.path.join(os.path.dirname(file), KM_ICON)
+        try:
+            base_path = sys._MEIPASS
+        except:
+            base_path = os.path.abspath('.')
+        self.icon = os.path.join(base_path, KM_ICON)
+        #----
         self.hover = f'{HOVER_TEXT}{ip}'
 
 
