@@ -75,7 +75,6 @@ class KMServer:
     def wait_for_client_message(self):
         try:
             m = self.conn.recv(1024)
-            print('rx-0')
             if  m == b'':
                 self.conn.close()
                 return None
@@ -108,17 +107,13 @@ class KMServer:
                     sleep(0.0005)
                     try:
                         m = self.conn.recv(1024)
-                        print('rx-1')
-
                         if  m.decode() == KM_CLIENT_LEAVE:
                             print('leaved')
                             break
 
                         try:
                             i = self.get_position(m.decode())
-                            print(f'{i}')
                             for j in i:
-                                print('move')
                                 move_mouse(j[0]*3,j[1]*2)
                         except:
                             pass
